@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Car, CarBrand, Driver
 
+from import_export.admin import ImportExportModelAdmin
 
 # admin.site.register(Car)
 # admin.site.register(CarBrand)

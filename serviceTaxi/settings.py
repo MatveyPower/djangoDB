@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cars.apps.CarsConfig',
     'bid.apps.BidConfig',
     'Rate.apps.RateConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
