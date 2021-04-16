@@ -21,14 +21,14 @@ class Car(models.Model):
 
 class CarBrand(models.Model):
     brand_сode = models.ForeignKey(Car, on_delete=models.CASCADE)
-    brand = models.CharField('Марка машины', max_length=20)
+    brand = models.CharField('Модель машины', max_length=20, null=True, blank=True)
 
     def __str__(self):
         return self.brand
     
     class Meta:
-        verbose_name = 'Марка машины',
-        verbose_name_plural = 'Марки машин'
+        verbose_name = 'Модель машины',
+        verbose_name_plural = 'Модели машин'
 
 class Driver(models.Model):
     have_car = models.OneToOneField(Car, on_delete=models.CASCADE, null=True,blank=True)

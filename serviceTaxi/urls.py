@@ -18,9 +18,19 @@ from django.urls import path
 from django.urls import include
 from django.views.generic import RedirectView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cars/', include('cars.urls')),
-    path('bid/', include('bid.urls')),
-    path('', RedirectView.as_view(url='/cars/', permanent=True)),
+    path('', include('cars.urls')),
+    path('', include('bid.urls')),
+    # path('', RedirectView.as_view(url='/cars/', permanent=True)),
 ]
+
+
+from django.views.generic import RedirectView
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

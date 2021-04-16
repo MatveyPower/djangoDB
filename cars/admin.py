@@ -24,18 +24,26 @@ class DriverAdmin(admin.ModelAdmin):
     list_display = ('have_car', 'callsign', 'lastname', 'status')
     list_filter = ('have_car','status')
     fields = ['callsign', 'lastname', ('date_of_birth', 'work_experience')]
-    search_fields = ('callsign', 'lastname')
+    search_fields = ('have_car__brand', 'callsign', 'lastname')
 
     actions = [on_the_line, no_the_line]
+
+@admin.register(CarBrand)
+class CarBrandAdmin(admin.ModelAdmin):
+    list_display = ('brand',)
 
 class DriverInstanceInline(admin.TabularInline):
     model = Driver
 
+class CarBrandInstanceInline(admin.TabularInline):
+    model = CarBrand
+
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     list_display = ('brand', 'color', 'state_number')
-    inlines = [DriverInstanceInline]
+    list_filter = ('brand',)
+    inlines = [DriverInstanceInline, CarBrandInstanceInline]
 
-@admin.register(CarBrand)
-class CarBrandAdmin(admin.ModelAdmin):
-    pass
+
+
+    
