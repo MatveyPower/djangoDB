@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cars.apps.CarsConfig',
     'bid.apps.BidConfig',
+    'Rate.apps.RateConfig',
 ]
 
 MIDDLEWARE = [

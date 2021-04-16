@@ -13,7 +13,7 @@ class Car(models.Model):
     status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='w')
 
     def __str__(self):
-        return self.state_number
+        return self.brand
 
     class Meta:
         verbose_name = 'Машина',
